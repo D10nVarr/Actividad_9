@@ -37,12 +37,16 @@ def eliminar_peli(title):
 
 def ver_stats():
     print(f"Existen {len(peliculas)} peliculas registradas")
-    generos=[]
+
     for i in peliculas:
-        for j in i[3]:
-            generos.append(j)
+        for j in i[2]:
+            print(j)
 
-
+    antigua=peliculas[0][1]
+    for i in peliculas:
+        if i[1]<antigua:
+            antigua=i[1]
+    print("La pelicula más antigua es: ",antigua)
 
 while True:
     print("\n____MENÚ DE REGISTRO DE PELÍCULAS____")
@@ -74,6 +78,9 @@ while True:
             titl=input("\nIngrese el titulo de la pelicula que desee eliminar: ")
             eliminar_peli(titl)
             print("Registro eliminado exitosamente")
+
+        case "5":
+            ver_stats()
 
 
 
