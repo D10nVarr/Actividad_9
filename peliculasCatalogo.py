@@ -24,7 +24,24 @@ def buscar_genero(gen):
             if j==gen:
                 print(i)
             else:
-                pass
+                continue
+
+def eliminar_peli(title):
+    global peliculas
+    for i in peliculas:
+        for j in i:
+            if j==title:
+                peliculas.remove(i)
+            else:
+                continue
+
+def ver_stats():
+    print(f"Existen {len(peliculas)} peliculas registradas")
+    generos=[]
+    for i in peliculas:
+        for j in i[3]:
+            generos.append(j)
+
 
 
 while True:
@@ -49,8 +66,14 @@ while True:
             mostrar_peliculas()
 
         case "3":
-            genero=input("Ingrese el genero de las peliculas que desee ver: ")
+            genero=input("\nIngrese el genero de las peliculas que desee ver: ")
             print(f"Las peliculas catalogadas con el genero {genero} son:")
             buscar_genero(genero)
+
+        case "4":
+            titl=input("\nIngrese el titulo de la pelicula que desee eliminar: ")
+            eliminar_peli(titl)
+            print("Registro eliminado exitosamente")
+
 
 
